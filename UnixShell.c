@@ -14,12 +14,7 @@ char** parser(char* input, char* args[]){
     char* token = strtok(input,deliminators); //initial strtok call using the input and deliminators 
     args[0] = token;
     int commands = 0;  // number of commands, used as an iterator for args
-
-
-
-    char** hold = malloc(2 * sizeof(char*)); //hold the token and input/output 
-    hold[0]=""; //to be replaced with "input" or "output" if we receive > or <
-    //hold[1] will hold onto the token once parsed 
+    char** hold; //used for holding token for comparison to <  > and |
 
     //loop for parsing the token 
     while(true){
@@ -139,7 +134,7 @@ int UnixLoop(){
                 }
 
                 printf("%s args to the left of the pipe", rightArgs);
-                printf("%s,args to the right of the pipe", lertArgs); 
+                printf("%s,args to the right of the pipe", leftArgs); 
                 pipeID = fork();
 
                 //parent process writes to the pipe 
