@@ -40,7 +40,7 @@ char** parser(char* input, char* args[]){
         } 
 
         //pipe
-        if(!strncmp(token, "|", 1)){
+        if(strncmp(token, "|", 1)==0){
             hold[0] = "pipe";        
         }
         
